@@ -1,0 +1,30 @@
+setcpm(40/4) // slow, drifting tempo
+
+$: // Pad 
+n("<0 3 2 5>/4")
+  .scale("C:phrygian:pentatonic")
+  .sound("gm_pad_2_warm")
+  .room(0.9)
+  .delay(0.6)
+  .gain(0.6)
+
+$: // Bass
+note("<c2 bb1 eb2 g1>/4")
+  .sound("gm_synth_bass_2")
+  .lpf(400)
+  .room(0.5)
+  .gain(0.7)
+
+$: // Melody 
+n("<[~ 4] [2 ~] [~ 6] [3 ~]>*2")
+  .scale("C4:minor:pentatonic")
+  .sound("gm_music_box")
+  .delay(0.8)
+  .room(0.95)
+  .gain(0.5)
+
+$: // Percussion
+sound("space:4 ~ ~ space:1 ~ ~ space:2 ~ ")
+  .gain(0.4)
+  .room(0.9)
+  .delay(0.5) 
