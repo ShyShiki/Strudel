@@ -1,0 +1,41 @@
+//funky_pocket.strudel
+// 95 bpm, D minor
+setcps(95/60/4)
+
+stack(  
+
+  // kick + snare backbone
+  sound("bd ~ ~ ~ bd ~ bd ~, ~ ~ sd ~ ~ ~ sd ~")
+    .bank("RolandTR909")
+    .gain(0.9), 
+
+  // cowbell on the 2 and 4 upbeats
+  sound("~ cowbell ~ cowbell ~ cowbell ~ cowbell")
+    .gain(0.55)
+    .speed(2),
+
+  // sax_vibe: short punchy riff + stays in D minor pentatonic
+  note("d4 ~ f4 a4 ~ c5 ~ a4")
+    .sound("sax_vibe")
+    .gain(0.8)
+    .room(0.15)
+    .lpf(3000),
+
+  // orchestra hit: one stab per bar for impact
+  note("~ ~ ~ d3 ~ ~ ~ ~")
+    .sound("gm_orchestra_hit:3")
+    .gain(1.0)
+    .crush(7),
+
+  // bass: locking in with kick
+  note("d2 ~ ~ f2 ~ ~ a2 ~")
+    .sound("sawtooth")
+    .gain(0.65)
+    .lpf(350)
+    .resonance(8),
+
+  // shaker for high end movement
+  sound("shaker*16")
+    .gain("0.5 0.15".fast(8))
+    .speed(1.5)
+)
